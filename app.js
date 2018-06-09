@@ -1,10 +1,8 @@
 var createError = require('http-errors');
-var nodemailer = require('nodemailer');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -23,6 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -38,30 +37,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.post('/contact', function (req, res) {
-  let mailOpts, smtpTrans;
-  smtpTrans = nodemailer.createTransport({
-    host: 'sramanjeet57@gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-      user: GMAIL_USER,
-      pass: GMAIL_PASS
-    }
-  });
-  mailOpts = {
-    from: req.body.name + ' &lt;' + req.body.email + '&gt;',
-    to: GMAIL_USER,
-    subject: 'New message from contact form ',
-    text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
-  };
-  smtpTrans.sendMail(mailOpts, function (error, response) {
-    if (error) {
-      res.render('contact-failure');
-    }
-    else {
-      res.render('contact-success');
-    }
-  });
-});
+
 module.exports = app;
