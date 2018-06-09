@@ -24,7 +24,7 @@
 
       $.ajax({
         type: "POST",
-        url: "contact.php",
+        url: "send",
         data: {
           'name':name,
           'email':email,
