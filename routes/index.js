@@ -5,7 +5,7 @@ var nodemailer =require('nodemailer');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const fs = require('fs');
-
+var path = require('path');
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 /* GET home page. */
@@ -25,6 +25,11 @@ router.get('/contact', function(req, res, next) {
 router.get('/project', function(req, res, next) {
   res.render('project', { title: 'Express' });
 });
+
+router.get('/Resume', function(req, res, next) {
+  res.sendFile(path.join(__dirname,'..',  '/public/pdf/Resume.pdf'));
+});
+
 router.post('/send', (req, res) => {
   const output = `
     <p>You have a new contact request</p>
