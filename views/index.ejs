@@ -1,21 +1,7 @@
 <% include partials/header %>
 <style>
 
-/* On screens that are 992px wide or less, the background color is blue */
-@media screen and (max-width: 1026px) {
-  #introductio {
-     background-color:#eee;
-                     text-align:center;
-                     
-                     padding: 5px;
-                     padding-left: 50px;
-                     padding-right: 60px;
-                     margin-top: 50px;
-                     width: 350px;
-                     margin: 0;
-                     border-radius: 3px;
-  }
-}
+
 #introductio {
     background-color:#eee;
                      text-align:center;
@@ -28,7 +14,21 @@
                      margin: auto 100px auto 350px;
                      border-radius: 3px;
   }
-
+/* On screens that are 992px wide or less, the background color is blue */
+@media screen and (max-width: 1026px) {
+  #introductio {
+     background-color:#eee;
+                     text-align:center;
+                     
+                     padding: 5px;
+                     padding-left: 50px;
+                     padding-right: 60px;
+                     margin-top: 50px;
+                     width: 350px;
+                     margin: auto;
+                     border-radius: 3px;
+  }
+}
 /* On screens that are 600px wide or less, the background color is olive */
 @media screen and (max-width: 600px) {
   #introductio {
