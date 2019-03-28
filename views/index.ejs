@@ -1,23 +1,20 @@
 <% include partials/header %>
 <style>
-  html{
-    zoom: 100% !important;
-  
+
+/* On screens that are 992px wide or less, the background color is blue */
+@media screen and (max-width: 992px) {
+  body {
+    background-color: blue;
+    color: white;
+  }
 }
-@media screen and (max-width: 402px) {
- div #ch{
-	 
-	 background-color:#eee;
-                     text-align:center;
-                     
-                     padding: 5px;
-                     padding-left: 50px;
-                     padding-right: 60px;
-                     margin-top: 50px;
-                     width: 450px;
-                     margin: auto;
-                     border-radius: 3px;"
-	 }
+
+/* On screens that are 600px wide or less, the background color is olive */
+@media screen and (max-width: 600px) {
+  body {
+    background-color: olive;
+    color: white;
+  }
 }
   
 </style>
